@@ -80,4 +80,10 @@
 #define MAGMA(a) CONCAT_(magma, CONCAT(MAGMA_PREFIX , a))
 #define MAGMAGPU(a) CONCAT_(magma, CONCAT(MAGMA_PREFIX , CONCAT_(a, gpu)))
 #define MAGMABLAS(a) CONCAT_(magmablas, CONCAT(MAGMA_PREFIX , a))
+
+// Define openmp reduction sum
+
+#pragma omp declare reduction(+: REAL_T: omp_out += omp_in) initializer(omp_priv=0)
+
 #endif
+
