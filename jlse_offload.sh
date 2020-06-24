@@ -51,7 +51,7 @@ export CMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE:=Release}
 export EXTRA_CFLAGS=${EXTRA_CFLAGS:=""}
 export EXTRA_LINK_FLAGS=${EXTRA_LINK_FLAGS:="-L. -latomic"}
 export CMAKE_Fortran_FLAGS=""
-export CMAKE_C_FLAGS="-fiopenmp -fopenmp-targets=spir64 -D__STRICT_ANSI__"
+export CMAKE_C_FLAGS="-fiopenmp -fopenmp-targets=spir64 -D__STRICT_ANSI__ -DUSE_OMP_OFFLOAD"
 
 ./build.sh configure
 
