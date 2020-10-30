@@ -33,7 +33,8 @@ elif [ "$BML_SDK_VENDOR" = "INTEL_CLANG" ]
 then
 
 export CC=${CC:=icx}
-export FC=${FC:=./ifx}
+export FC=${FC:=ifx}
+#export FC=${FC:=./ifx}
 export CXX=${CXX:=icpx}
 
 fi
@@ -49,9 +50,11 @@ export INSTALL_DIR=${INSTALL_DIR:="${MY_PATH}/install"}
 export BML_TESTING=${BML_TESTING:=yes}
 export CMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE:=Release}
 export EXTRA_CFLAGS=${EXTRA_CFLAGS:=""}
-export EXTRA_LINK_FLAGS=${EXTRA_LINK_FLAGS:="-L. -latomic"}
-export CMAKE_Fortran_FLAGS=""
-export CMAKE_C_FLAGS="-fiopenmp -fopenmp-targets=spir64 -D__STRICT_ANSI__ -DUSE_OMP_OFFLOAD"
+#export EXTRA_LINK_FLAGS=${EXTRA_LINK_FLAGS:="-L."}
+export EXTRA_LINK_FLAGS=${EXTRA_LINK_FLAGS:="/soft/restricted/CNDA/sdk/2020.10.30.1/oneapi/compiler/latest/linux/lib/libomp-complex-fp64.o"}
+export CMAKE_Fortran_FLAGS="-fopenmp-targets=spir64 -DINTEL_SDK -fiopenmp"
+#export CMAKE_C_FLAGS="-fiopenmp -fopenmp-targets=spir64 -fopenmp-device-lib -D__STRICT_ANSI__ -DUSE_OMP_OFFLOAD"
+export CMAKE_C_FLAGS="-fopenmp-targets=spir64 -D__STRICT_ANSI__ -DUSE_OMP_OFFLOAD -fiopenmp "
 
 ./build.sh configure
 
