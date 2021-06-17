@@ -260,13 +260,13 @@ testing() {
 
 indent() {
     cd "${BUILD_DIR}"
-    "${TOP_DIR}/scripts/indent.sh" 2>&1 | tee --append "${LOG_FILE}"
+    "${TOP_DIR}/indent.sh" 2>&1 | tee --append "${LOG_FILE}"
     check_pipe_error
 }
 
 check_indent() {
     cd "${TOP_DIR}"
-    "${TOP_DIR}/scripts/indent.sh" 2>&1 | tee --append "${LOG_FILE}"
+    "${TOP_DIR}/indent.sh" 2>&1 | tee --append "${LOG_FILE}"
     check_pipe_error
     git diff 2>&1 | tee --append "${LOG_FILE}"
     check_pipe_error
@@ -278,7 +278,7 @@ check_indent() {
 }
 
 tags() {
-    "${TOP_DIR}/scripts/update_tags.sh" 2>&1 | tee --append "${LOG_FILE}"
+    "${TOP_DIR}/update_tags.sh" 2>&1 | tee --append "${LOG_FILE}"
     check_pipe_error
 }
 
