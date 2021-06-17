@@ -27,7 +27,7 @@ jobs:
       - name: Check out sources
         uses: actions/checkout@v1
       - name: Prepare container
-        run: ./scripts/prepare-container.sh
+        run: ./prepare-container.sh
       - run: bundle install
       - run: bundle exec danger || true
       - run: BML_OPENMP=no EMACS=emacs27 ./build.sh check_indent
@@ -40,7 +40,7 @@ jobs:
       - name: Check out sources
         uses: actions/checkout@v2
       - name: Prepare container
-        run: ./scripts/prepare-container.sh
+        run: ./prepare-container.sh
       - name: Build docs
         run: ./build.sh docs
 
@@ -87,7 +87,7 @@ jobs:
       - name: Check out sources
         uses: actions/checkout@v2
       - name: Prepare container
-        run: ./scripts/prepare-container.sh
+        run: ./prepare-container.sh
       - name: Build and test library
         env:
           TEST_SCRIPT: ${{ matrix.TEST_SCRIPT || env.TEST_SCRIPT }}

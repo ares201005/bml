@@ -63,17 +63,4 @@ bml_matrix_t *bml_group_matrix(
     int ngroups,
     double threshold);
 
-// Return a submatrix from a matrix
-bml_matrix_t *bml_extract_submatrix(
-    bml_matrix_t * A,
-    int irow,
-    int icol,
-    int B_N,
-    int B_M);
-
-void bml_assign_submatrix(
-    bml_matrix_t * A,
-    bml_matrix_t * B,
-    int irow,
-    int icol);
 #endif
